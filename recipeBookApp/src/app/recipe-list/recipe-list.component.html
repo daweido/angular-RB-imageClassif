@@ -1,0 +1,12 @@
+<h1>Recipe List</h1>
+<button type="button" (click)="onCreateNewRecipe()">Create New Recipe</button>
+<ul>
+  <li *ngFor="let recipe of recipeList">
+    {{recipe.name}}
+    <button type="button" (click)="addRecipeToCart()">+</button>
+  </li>
+</ul>
+
+<div *ngIf="showNewRecipe">
+  <app-new-recipe></app-new-recipe>
+</div>

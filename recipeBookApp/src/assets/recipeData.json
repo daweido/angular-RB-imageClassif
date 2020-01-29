@@ -1,0 +1,218 @@
+[
+  {
+    "type": "Dessert",
+    "name": "Gâteau au Chocolat",
+    "ingredients": [
+      {
+        "name": "farine",
+        "quantity": 3
+      },
+      {
+        "name": "chocolat",
+        "quantity": 4
+      },
+      {
+        "name": "sucre",
+        "quantity": 2
+      },
+      {
+        "name": "oeuf",
+        "quantity": 5
+      },
+      {
+        "name": "beurre",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "type": "Virus",
+    "name": "Soupe Chauve Souris",
+    "ingredients": [
+      {
+        "name": "Chauve Souris",
+        "quantity": 3
+      },
+      {
+        "name": "Tomate",
+        "quantity": 6
+      },
+      {
+        "name": "Huile",
+        "quantity": 1
+      },
+      {
+        "name": "Oignon",
+        "quantity": 2
+      },
+      {
+        "name": "Sel",
+        "quantity": 1
+      },
+      {
+        "name": "Poivre",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "type": "Plat",
+    "name": "Tagliatelles carbonara",
+    "ingredients": [
+      {
+        "name": "Tagliatelles",
+        "quantity": 7
+      },
+      {
+        "name": "Lardons fumés",
+        "quantity": 3
+      },
+      {
+        "name": "Crème fraîche",
+        "quantity": 2
+      },
+      {
+        "name": "Oignon",
+        "quantity": 1
+      },
+      {
+        "name": "Ail",
+        "quantity": 1
+      },
+      {
+        "name": "Oeuf",
+        "quantity": 2
+      },
+      {
+        "name": "Sel",
+        "quantity": 1
+      },
+      {
+        "name": "Poivre",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "type": "Dessert",
+    "name": "Meringue",
+    "ingredients": [
+      {
+        "name": "Blanc d'oeuf",
+        "quantity": 4
+      },
+      {
+        "name": "Sucre",
+        "quantity": 30
+      }
+    ]
+  },
+  {
+    "type": "Dessert",
+    "name": "Palmiers",
+    "ingredients": [
+      {
+        "name": "Pâte feuilletée",
+        "quantity": 1
+      },
+      {
+        "name": "Sucre en poudre",
+        "quantity": 20
+      },
+      {
+        "name": "Jaunes d'oeuf",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "type": "Dessert",
+    "name": "Tiramisu",
+    "ingredients": [
+      {
+        "name": "Biscuits à la cuillère",
+        "quantity": 1
+      },
+      {
+        "name": "Sucre en poudre",
+        "quantity": 20
+      },
+      {
+        "name": "Jaunes d'oeuf",
+        "quantity": 2
+      },
+      {
+        "name": "Mascarpone",
+        "quantity": 1
+      },
+      {
+        "name": "Café liquide",
+        "quantity": 20
+      },
+      {
+        "name": "Cacao en poudre",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "type": "Dessert",
+    "name": "Crêpes",
+    "ingredients": [
+      {
+        "name": "Lait",
+        "quantity": 1
+      },
+      {
+        "name": "Farine",
+        "quantity": 20
+      },
+      {
+        "name": "Oeuf",
+        "quantity": 4
+      },
+      {
+        "name": "Eau",
+        "quantity": 6
+      },
+      {
+        "name": "Sucre",
+        "quantity": 20
+      }
+    ]
+  },
+  {
+    "type": "Plat",
+    "name": "Poulet",
+    "ingredients": [
+      {
+        "name": "Poulet",
+        "quantity": 1
+      },
+      {
+        "name": "Tomate Cerise",
+        "quantity": 4
+      },
+      {
+        "name": "Oignon",
+        "quantity": 2
+      },
+      {
+        "name": "Ail",
+        "quantity": 1
+      },
+      {
+        "name": "Citron",
+        "quantity": 1
+      },
+      {
+        "name": "Sel",
+        "quantity": 1
+      },
+      {
+        "name": "Poivre",
+        "quantity": 1
+      }
+    ]
+  }
+]
