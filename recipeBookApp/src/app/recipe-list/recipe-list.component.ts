@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {RecipeListServiceService} from '../recipe-list-service.service';
+import {RecipeListServiceService} from './recipe-list-service.service';
 import {Recipe} from './recipe.model';
 import {Subscription} from 'rxjs';
 import {CartServiceService} from '../cart/cart-service.service';
@@ -51,14 +51,11 @@ export class RecipeListComponent implements OnInit {
       } else {
         this.recipeFilteredList = this.recipeList.filter(recipe => recipe.type === this.currentFilter);
       }
-
-      console.log(this.currentFilter);
-      console.log(this.recipeFilteredList);
     });
   }
 
   onCreateNewRecipe() {
-    this.showNewRecipe = true;
+    this.recipeListServiceService.showNewRecipe();
   }
 
   addRecipeToCart(recipe: Recipe) {

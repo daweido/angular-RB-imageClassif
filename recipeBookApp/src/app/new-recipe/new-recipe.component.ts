@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {RecipeListServiceService} from '../recipe-list-service.service';
+import {RecipeListServiceService} from '../recipe-list/recipe-list-service.service';
 import {Ingredient} from '../recipe-list/ingredient.model';
 import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
 
