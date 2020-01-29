@@ -18,6 +18,7 @@ export class NewRecipeComponent implements OnInit {
   ngOnInit() {
     this.newRecipeForm = this.formBuilder.group({
       name: '',
+      type: '',
       ingredients: this.formBuilder.array([this.createIngredient()])
     });
   }
@@ -30,6 +31,7 @@ export class NewRecipeComponent implements OnInit {
   }
 
   hideNewRecipe() {
+    this.newRecipeForm.reset();
     this.recipeListServiceService.clearNewRecipe();
   }
 
@@ -45,6 +47,7 @@ export class NewRecipeComponent implements OnInit {
   }
 
   onSubmit(RecipeData) {
+    this.hideNewRecipe();
     this.recipeListServiceService.pushNewRecipe(RecipeData);
   }
 }

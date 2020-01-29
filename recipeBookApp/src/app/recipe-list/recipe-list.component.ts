@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {RecipeListServiceService} from '../recipe-list-service.service';
 import {Recipe} from './recipe.model';
 import {Subscription} from 'rxjs';
+import {CartServiceService} from '../cart/cart-service.service';
+import {RecipeFilterService} from './recipe-filter.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -13,8 +15,12 @@ export class RecipeListComponent implements OnInit {
   private showNewRecipe = false;
   newRecipeSubscription: Subscription;
   pushNewRecipeSubscription: Subscription;
+  currentFilter = 'none';
+  recipeFilteredList: Recipe[] = this.recipeList;
 
-  constructor(private recipeListServiceService: RecipeListServiceService) {
+  constructor(private recipeListServiceService: RecipeListServiceService, private cartService: CartServiceService, private recipeFilterService: RecipeFilterService) {
+
+
     this.newRecipeSubscription = this.recipeListServiceService.getRecipeObservable().subscribe(message => {
       if (message === 'hide') {
         this.showNewRecipe = false;
@@ -23,16 +29,31 @@ export class RecipeListComponent implements OnInit {
       }
     });
 
+
     this.pushNewRecipeSubscription = this.recipeListServiceService.getPushRecipeObservable().subscribe(newRecipe => {
-      console.log(newRecipe);
       this.recipeList.push(newRecipe);
     });
-
   }
 
   ngOnInit() {
     this.recipeListServiceService.getJSON().subscribe(data => {
       this.recipeList = data;
+      this.recipeFilteredList = this.recipeList;
+    });
+
+
+
+    this.recipeFilterService.filter.subscribe(filter => {
+      this.currentFilter = filter;
+
+      if (this.currentFilter === 'none') {
+        this.recipeFilteredList = this.recipeList;
+      } else {
+        this.recipeFilteredList = this.recipeList.filter(recipe => recipe.type === this.currentFilter);
+      }
+
+      console.log(this.currentFilter);
+      console.log(this.recipeFilteredList);
     });
   }
 
@@ -40,4 +61,11 @@ export class RecipeListComponent implements OnInit {
     this.showNewRecipe = true;
   }
 
+  addRecipeToCart(recipe: Recipe) {
+    this.cartService.addRecipeToCart(recipe);
+  }
+
+  setFilter(filter: string) {
+    this.recipeFilterService.updatedFilterSelection(filter);
+  }
 }

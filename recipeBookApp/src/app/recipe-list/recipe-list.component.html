@@ -1,12 +1,32 @@
-<h1>Recipe List</h1>
-<button type="button" (click)="onCreateNewRecipe()">Create New Recipe</button>
-<ul>
-  <li *ngFor="let recipe of recipeList">
-    {{recipe.name}}
-    <button type="button" (click)="addRecipeToCart()">+</button>
-  </li>
-</ul>
 
-<div *ngIf="showNewRecipe">
-  <app-new-recipe></app-new-recipe>
-</div>
+  <h1>Recipe List</h1>
+
+
+  <div class="row mb-3">
+    <div class="col-md-12">
+      <button (click)="setFilter('Plat')" class="btn btn-primary mr-2">Plat</button>
+      <button (click)="setFilter('Dessert')" class="btn btn-primary mr-2">Dessert</button>
+      <button (click)="setFilter('Virus')" class="btn btn-primary mr-2">Virus</button>
+      <button (click)="setFilter('none')" class="btn btn-danger">Remove Filter</button>
+
+      <button type="button" class="btn btn-success float-right" (click)="onCreateNewRecipe()">Create New Recipe</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <ul class="list-group">
+        <li *ngFor="let recipe of recipeFilteredList" class="list-group-item">
+          {{recipe.name}}<small class="text-muted ml-2">{{recipe.type}}</small>
+          <button type="button" class="btn btn-success ml-2 float-right" (click)="addRecipeToCart(recipe)">+</button>
+        </li>
+      </ul>
+    </div>
+
+    <div *ngIf="showNewRecipe" class="col-md-6">
+      <app-new-recipe></app-new-recipe>
+    </div>
+
+
+  </div>
+

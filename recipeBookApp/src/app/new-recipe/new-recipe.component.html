@@ -7,20 +7,49 @@
   </div>
 
 
+  <div class="form-group">
+    <label for="recipe-type">Recipe type</label>
+
+    <select class="custom-select" id="recipe-type" formControlName="type">
+      <option value="none" disabled>Choose your city</option>
+      <option value="Plat">Plat</option>
+      <option value="Dessert">Dessert</option>
+      <option value="Virus">Virus</option>
+    </select>
+  </div>
+
   <h2>Ingredients</h2>
-  <button type="button" (click)="addIngredient()">Add Ingredient</button>
+  <button type="button" class="btn btn-info mb-2" (click)="addIngredient()">Add Ingredient</button>
 
   <div formArrayName="ingredients"
        *ngFor="let item of newRecipeForm.get('ingredients').controls; let i = index;">
     <div [formGroupName]="i">
-      <input formControlName="name" placeholder="Item name" type="text">
-      <input formControlName="quantity" placeholder="Item description" type="number">
-      <button (click)="removeIngredient(i)" *ngIf="i > 0> 1">X</button>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="form-group">
+            <label for="ingredient-name">Ingredient Name</label>
+            <input type="text" class="form-control" id="ingredient-name" required formControlName="name">
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="form-group">
+            <label for="ingredient-quantity">Ingredient Quantity</label>
+            <input type="number" class="form-control" id="ingredient-quantity" required formControlName="quantity">
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <button (click)="removeIngredient(i)" class="btn btn-danger btn-xs" *ngIf="i > 0">X</button>
+        </div>
+      </div>
+
+
+
 <!--      <button (click)="removeIngredient(i)" *ngIf="i > 0 || ingredients.length > 1">X</button>-->
     </div>
   </div>
 
-  <button type="submit" class="btn btn-success">Submit</button>
-  <button type="button" class="btn btn-success" (click)="hideNewRecipe()">Cancel</button>
+  <button type="submit" class="btn btn-success mr-2">Submit</button>
+  <button type="button" class="btn btn-danger" (click)="hideNewRecipe()">Cancel</button>
 
 </form>
