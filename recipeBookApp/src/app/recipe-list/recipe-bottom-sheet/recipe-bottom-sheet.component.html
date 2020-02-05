@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>{{currentRecipe.name}} <small class="primary-text-color">{{currentRecipe.type}}</small></h2>
+    <h5>Ingredients</h5>
+    <mat-list>
+      <mat-list-item *ngFor="let ingredient of currentRecipe.ingredients">
+        {{ingredient.name}} - {{ingredient.quantity}}
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

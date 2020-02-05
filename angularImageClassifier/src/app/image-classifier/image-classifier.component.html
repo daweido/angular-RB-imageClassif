@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>Image Recognition</h2>
+  </div>
+</div>
+
+<div *ngIf="!modelLoded; else modelLoaded">
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <div class="ml-auto mr-auto">
+        <mat-spinner class="ml-auto mr-auto"></mat-spinner>
+        <h5 class="text-center mt-3">Loading Model...</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #modelLoaded>
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" (change)="fileChange($event)">
+        <label class="custom-file-label">Select File</label>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <img #img [src]="imgSrc" class="img-fluid" *ngIf="imageSelected">
+    </div>
+
+    <div class="col-md-6">
+      <div class="list-group">
+        <div class="list-group-item" *ngFor="let item of predictions">
+          {{item.class}}<span class="float-right">{{item.score | percent}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+
+
+
+
+
+
+

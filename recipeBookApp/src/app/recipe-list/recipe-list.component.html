@@ -3,6 +3,12 @@
 
 
   <div class="row mb-3">
+    <div class="col-md-6">
+      <input type="text" class="form-control" (keyup)="searchRecipes($event)" placeholder="Search recipes..." #recipeSearchInput>
+    </div>
+  </div>
+
+  <div class="row mb-3">
     <div class="col-md-12">
       <button (click)="setFilter('Plat')" class="btn btn-primary mr-2">Plat</button>
       <button (click)="setFilter('Dessert')" class="btn btn-primary mr-2">Dessert</button>
@@ -16,9 +22,16 @@
   <div class="row">
     <div class="col-md-6">
       <ul class="list-group">
-        <li *ngFor="let recipe of recipeFilteredList" class="list-group-item">
-          {{recipe.name}}<small class="text-muted ml-2">{{recipe.type}}</small>
-          <button type="button" class="btn btn-success ml-2 float-right" (click)="addRecipeToCart(recipe)">+</button>
+        <li  *ngFor="let recipe of recipeFilteredList" class="list-group-item list-group-item-action">
+          <div class="float-left">
+            <a (click)="openBottomSheetRecipe(recipe)" class="pointerCursor">{{recipe.name}}<small class="text-muted ml-2">{{recipe.type}}</small></a>
+          </div>
+
+          <div class="float-right">
+            <button type="button" class="btn btn-success" (click)="addRecipeToCart(recipe)"><mat-icon>add</mat-icon></button>
+            <button type="button" class="btn btn-danger ml-2" (click)="onDeleteRecipe(recipe)"><mat-icon>delete</mat-icon></button>
+          </div>
+
         </li>
       </ul>
     </div>

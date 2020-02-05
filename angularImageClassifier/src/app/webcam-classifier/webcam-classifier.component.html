@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>Webcam Recognition</h2>
+  </div>
+</div>
+
+<div class="row mt-5">
+  <div class="col-md-6">
+    <div *ngIf="!webcamLoaded" class="ml-auto mr-auto">
+      <mat-spinner class="ml-auto mr-auto"></mat-spinner>
+      <h5 class="text-center mt-3">Loading Webcam...</h5>
+    </div>
+
+    <video autoplay muted #video class="img-fluid"></video>
+  </div>
+
+  <div class="col-md-6">
+    <div class="list-group" *ngIf="modelLoded; else modelSpinner">
+      <div class="list-group-item" *ngFor="let item of predictions">
+        {{item.class}}<span class="float-right">{{item.score | percent}}</span>
+      </div>
+    </div>
+    <ng-template #modelSpinner>
+      <div class="ml-auto mr-auto">
+        <mat-spinner class="ml-auto mr-auto"></mat-spinner>
+        <h5 class="text-center mt-3">Loading Model...</h5>
+      </div>
+    </ng-template>
+  </div>
+</div>
+
+
